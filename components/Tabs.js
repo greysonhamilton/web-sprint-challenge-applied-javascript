@@ -12,33 +12,43 @@
 
 const topicDiv = document.querySelector('div.topics');
 
-for (let i = 0; i < card; i++) {
+axios.get('https://lambda-times-api.herokuapp.com/topics')
 
-    axios.get('https://lambda-times-api.herokuapp.com/topics')
+.then(({data: {topics}}) => {
 
-    .then(res => {
+    topics.forEach(topic => {
 
-        res.data.topicsforEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('tab');
+        div.textConent = topic;
 
-            topicDiv.appendChild(tabMaker(item));
+        topicDiv.appendChild(div);
 
+        div.addEventListener('click', (e) => {
+
+            const allCards = document.querySelectorAll('div.card')
+            
+            allCards.forEach(card => {
+    
+                card.style.display = 'none';
+    
+                if (topic === 'node.js') topic = 'node';
+    
+                chosenCard = document.querySelectorAll(`[category=${topic}]`);
+    
+                chosenCard.forEach(card => {
+    
+                    card.style.display = 'block'
+                })
+            })
         })
 
-        .catch(err => {
-            alert('This does not comput!');
+    })
 
-        })
+    .catch(err => {
 
-    });
+        alert('This does not comput!', err);
 
-}
+    })
 
-function tabMaker(item) {
-
-    const div = document.createElement('div');
-    div.classList.add('tab');
-    div.textConent = item;
-
-    return div;
-
-};
+});

@@ -30,7 +30,7 @@ function header() {
 
     date.textContent = 'MARCH 28, 2020';
     h1.textContent = 'Lambda Times';
-    temp.textContent = '98';
+    temp.textContent = '98°';
 
     return header;
 
