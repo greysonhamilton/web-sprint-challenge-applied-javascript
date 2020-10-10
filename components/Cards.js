@@ -32,7 +32,7 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
 
         articles[category].forEach(article =>
             
-            card.appendChild(cards(article, category)))
+            cardData.appendChild(cardMaker(article, category)))
     }
 })        
 
