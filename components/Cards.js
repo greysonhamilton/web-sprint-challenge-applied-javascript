@@ -26,7 +26,7 @@ cardData = document.querySelector('div.cards-container');
 
 axios.get('https://lambda-times-api.herokuapp.com/articles')
 
-.then(({data: {articles}}) => {
+.then(({data: { articles }}) => {
 
     for (const category in articles) {
 
