@@ -20,7 +20,7 @@ axios.get('https://lambda-times-api.herokuapp.com/topics')
 
         const div = document.createElement('div');
         div.classList.add('tab');
-        div.textConent = topic;
+        div.textContent = topic;
 
         topicDiv.appendChild(div);
 
